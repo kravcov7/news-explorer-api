@@ -1,9 +1,9 @@
 const express = require('express');
-// const cookieParser = require('cookie-parser');
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
-// require('dotenv').config();
-// const { celebrate, Joi } = require('celebrate');
+const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+require('dotenv').config();
+const { celebrate, Joi } = require('celebrate');
 // const { errors } = require('celebrate');
 
 const { PORT = 3000 } = process.env;
@@ -13,20 +13,20 @@ const { PORT = 3000 } = process.env;
 // const { createUser, login } = require('./controllers/users');
 // const { urlValidator } = require('./models/urlVaidator');
 // const { auth } = require('./middlewares/auth');
-// const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
-// mongoose.connect('mongodb://localhost:27017/mestodb', {
-//   useNewUrlParser: true,
-//   useCreateIndex: true,
-//   useFindAndModify: false,
-// });
+mongoose.connect('mongodb://localhost:27017/mestodb', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
-// app.use(bodyParser.json());
-// app.use(cookieParser());
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(requestLogger);
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(requestLogger);
 
 // app.get('/crash-test', () => {
 //   setTimeout(() => {
@@ -53,7 +53,7 @@ const app = express();
 // app.use(auth);
 // app.use('/users', usersRouter);
 // app.use('/cards', cardsRouter);
-// app.use(errorLogger);
+app.use(errorLogger);
 // app.use(errors());
 
 // // eslint-disable-next-line no-unused-vars
