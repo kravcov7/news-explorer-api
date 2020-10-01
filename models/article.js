@@ -27,19 +27,19 @@ const articleSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: (link) => validator.isURL(link),
-      message: (props) => `${props.value} недопустимый адрес!`,
     },
   },
   image: {
     type: String,
     required: true,
-    validate: urlValidator,
+    validate: {
+      validator: (link) => validator.isURL(link),
+    },
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
     required: true,
-    select: false,
   },
 });
 
