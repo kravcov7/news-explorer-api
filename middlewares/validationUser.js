@@ -1,7 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 const validator = require('validator');
-const ErrorBadRequest = require('../errors/ErrorBadRequest');
-const { errMessage } = require('../errMessage');
+const ErrorBadRequest = require('../errors/errorBadRequest');
+const { errMessage } = require('../errors/errorMessage');
 
 const name = Joi.string().trim().min(2)
   .max(30)

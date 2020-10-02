@@ -2,8 +2,8 @@ const { celebrate, Joi } = require('celebrate');
 Joi.objectId = require('joi-objectid')(Joi);
 const validator = require('validator');
 
-const ErrorBadRequest = require('../errors/ErrorBadRequest');
-const { errMessage } = require('../errMessage');
+const ErrorBadRequest = require('../errors/errorBadRequest');
+const { errMessage } = require('../errors/errorMessage');
 
 module.exports.createArticleValidation = celebrate({
   body: Joi.object().keys({

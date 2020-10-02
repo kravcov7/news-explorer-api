@@ -1,5 +1,5 @@
 const { isCelebrate } = require('celebrate');
-const { errMessage } = require('../errMessage');
+const { errMessage } = require('../errors/errorMessage');
 
 module.exports = ((err, req, res, next) => {
   const { statusCode = isCelebrate(err) ? 400 : 500, message } = err;

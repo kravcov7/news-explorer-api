@@ -4,9 +4,9 @@ const routerUsers = require('./users');
 const routerArticles = require('./articles');
 const auth = require('../middlewares/auth');
 const { createUser, login } = require('../controllers/users');
-const ErrorNotFound = require('../errors/ErrorNotFound');
+const ErrorNotFound = require('../errors/errorNotFound');
 const { createUserValidation, loginValidation } = require('../middlewares/validationUser');
-const errMessage = require('../errMessage');
+const errMessage = require('../errors/errorMessage');
 
 router.use('/crash-test', () => {
   setTimeout(() => {
