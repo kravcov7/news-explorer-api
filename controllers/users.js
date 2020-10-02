@@ -25,7 +25,10 @@ const createUser = (req, res, next) => {
     .then((hash) => User.create({
       name, email, password: hash,
     }))
-    .then((user) => res.status(201).send({ data: user.omitPrivate() }))
+    .then((user) => res.status(201).send({
+      _id: user._id,
+      email: user.email,
+    }))
     .catch((err) => {
       let error;
       if (err.name === 'MongoError' && err.code === duplicateKeyException.errCode) {

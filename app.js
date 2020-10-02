@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
-const { errors } = require('celebrate');
 
 const {
   PORT, MONGO_URL, mongooseConfig,
@@ -27,7 +26,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);
 app.use(routes);
 app.use(errorLogger);
-app.use(errors());
 
 app.use(errorHandler);
 
