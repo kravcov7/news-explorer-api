@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
 const {
-  PORT, MONGO_URL, mongooseConfig,
+  PORT, BD_URL, mongooseConfig,
 } = require('./config');
 const routes = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -15,7 +15,7 @@ const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
-mongoose.connect(MONGO_URL, mongooseConfig);
+mongoose.connect(BD_URL, mongooseConfig);
 
 app.use(limiter);
 app.use(helmet());
