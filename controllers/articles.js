@@ -1,6 +1,6 @@
 const Article = require('../models/article');
-const ErrorForbidden = require('../errors/rorForbidden');
-const { errMessage } = require('../errors/rorMessage');
+const ErrorForbidden = require('../errors/errorForbidden');
+const { errMessage } = require('../errors/errorMessage');
 
 const getArticles = (req, res, next) => {
   Article.find({ owner: req.user._id })
