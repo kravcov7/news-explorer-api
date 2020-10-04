@@ -33,7 +33,3 @@ DELETE /articles/:articleId (удаляет статью, при условии 
 3. Установить зависимости `npm i`
 4. `npm run start` запускает сервер на `localhost:3000`
 5. `npm run dev` запускает сервер на `localhost:3000` с хот релоудом
-
-
-
-}
