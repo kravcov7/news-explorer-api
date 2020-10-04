@@ -4,6 +4,8 @@
 + IP адрес: 84.201.157.58
 + https://www.news-card.site/
 + http://www.news-card.site/
++ https://www.api.news-card.site/
++ http://www.api.news-card.site/
 
 ## Стек
 + ES6
