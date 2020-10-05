@@ -16,6 +16,7 @@ module.exports.errMessage = {
   successfulAuth: 'Авторизация прошла успешно',
   unsuccessfulAuth: 'Неверный адрес электронной почты или пароль',
   accessDenied: 'Нельзя удалить статью, сохранённую другим пользователем',
+  articleDeleted: 'Статья удалена',
   needLogin: 'Необходима авторизация',
   serverErr: 'На сервере произошла ошибка',
 };

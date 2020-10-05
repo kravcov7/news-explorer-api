@@ -1,5 +1,6 @@
 const Article = require('../models/article');
 const ErrorForbidden = require('../errors/errorForbidden');
+const ErrorNotFound = require('../errors/errorNotFound');
 const { errMessage } = require('../errors/errorMessage');
 
 const getArticles = (req, res, next) => {
@@ -22,16 +23,14 @@ const createArticle = (req, res, next) => {
 };
 
 const deleteArticle = (req, res, next) => {
-  const { articleId } = req.params;
-  const userId = req.user._id;
-
-  Article.findById({ _id: articleId, owner: userId })
-    .orFail().remove()
+  Article.findById(req.params.id)
+    .orFail(new ErrorNotFound(errMessage.notFoundArticle))
     .then((article) => {
-      if (!article) {
+      const { owner } = article;
+      if (req.user._id !== owner.toString()) {
         throw new ErrorForbidden(errMessage.accessDenied);
       }
-      res.send({ data: article });
+      Article.deleteOne(article).then(() => res.send({ message: errMessage.articleDeleted }));
     })
     .catch(next);
 };
