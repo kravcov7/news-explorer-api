@@ -19,7 +19,10 @@ const errorHandler = require('./middlewares/errorHandler');
 const corsOptions = {
   origin: [
     'http://localhost:8080',
-    'https://www.api.news-card.site/',
+    'https://www.news-card.site/',
+    'https://news-card.site/',
+    'http://www.news-card.site/',
+    'http://news-card.site/',
     'https://kravcov7.github.io/news-explorer-frontend/',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],

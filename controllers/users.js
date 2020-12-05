@@ -20,7 +20,8 @@ const getUser = (req, res, next) => {
 const createUser = (req, res, next) => {
   const {
     name, email, password,
-  } = req.body
+  } = req.body;
+  bcrypt.hash(password, 5)
     .then((hash) => User.create({
       name, email, password: hash,
     }))
@@ -43,7 +44,7 @@ const login = (req, res, next) => {
   return User.findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
-      res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true, sameSite: true }).end(errMessage.successfulAuth);
+      res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true, sameSite: false }).end(errMessage.successfulAuth);
       return res.send({ token });
     })
     .catch((err) => {
