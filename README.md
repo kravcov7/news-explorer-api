@@ -1,7 +1,7 @@
 # Backend дипломного проекта NewsExplorer
 
 ## Доступ
-+ IP адрес: 84.201.157.58
++ IP адрес: 130.193.39.204
 + https://www.news-card.site/
 + http://www.news-card.site/
 + https://www.api.news-card.site/
@@ -28,6 +28,7 @@
 + GET /articles (возвращает все сохраненные пользователем статьи),
 + POST /articles (создаёт статью),
 + DELETE /articles/:articleId (удаляет статью, при условии что она принадлежит пользователю)
+
 
 ## Инструкция по запуску
 1. Установить `Node.js`
